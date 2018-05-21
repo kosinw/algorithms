@@ -1,36 +1,52 @@
 #pragma once
 
-#include <stdint.h>
+#include <stdint.h> 
 #include <vector>
-#include <functional>
-
-using std::vector;
+#include <memory>
 
 namespace A
 {
-	using heuristics_function = std::function<float(vertex, vertex)>;
-
-	struct vertex
+	struct Vertex
 	{
 		int32_t X;
 		int32_t Y;
 	};
 
-	struct node
+	struct Node
 	{
-		vertex position;
-		size_t founder;
+		Vertex V;
 
-		float known_distance;
-		float estimated_distance;
+		std::shared_ptr<Node> Founder;
+
+		float G; // Distance value
+		float H; // Heuristics value
+
+		inline float D() { return G + H; }		
 	};
 
-	vector<vertex> calculate_shortest_path(vertex begin, vertex end, vertex size, vector<vertex> black_list, heuristics_function funct);
-
-	namespace heuristics
+	class Pathfinder
 	{
-		float manhattan_distance(vertex node, vertex goal);
-		float diagonal_distance(vertex node, vertex goal);
-		float euclidean_distance(vertex node, vertex goal);
+		using HeuristicsFunction = float(*)(Vertex, Vertex);
+
+	public:
+		Pathfinder();
+		void BlockVertex(Vertex v);
+		void UnblockVertex(Vertex v);
+
+		std::vector<Vertex> CalculateShortestPath(Vertex start, Vertex goal);
+
+		void SetFunction(HeuristicsFunction funct);
+		void SetGraphSize(uint32_t X, uint32_t Y);
+	private:
+		bool IsNodeUnblocked(Vertex v);
+		std::vector<Vertex> blockedVertices_;
+		HeuristicsFunction function_ = nullptr;
+		Vertex size_;
+	};
+
+	namespace Heurisitics
+	{
+		float Manhattan(Vertex a, Vertex b);
+		float Euclidean(Vertex a, Vertex b);
 	}
 }

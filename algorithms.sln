@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "astar", "astar", "{50F490CC-45FF-46A1-AEA8-12E74C628021}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "astar", "..\astar\astar.vcxproj", "{13E19BDB-B52F-41DA-8AC3-AA7DE939289E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "astar", "astar\astar.vcxproj", "{13E19BDB-B52F-41DA-8AC3-AA7DE939289E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{C9518A65-FC00-4A6C-AC72-DB3A871C3F01}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "astar-viz", "astar-viz", "{C17B5506-5359-437C-8A52-7A73B950D353}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shared", "..\shared\shared.vcxproj", "{0A083868-F2F4-4D6A-BF76-6F32C0921566}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "astar-viz", "astar-viz\astar-viz.vcxproj", "{E203A21B-9750-435A-8E47-83D0223E2FEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,21 +27,21 @@ Global
 		{13E19BDB-B52F-41DA-8AC3-AA7DE939289E}.Release|x64.Build.0 = Release|x64
 		{13E19BDB-B52F-41DA-8AC3-AA7DE939289E}.Release|x86.ActiveCfg = Release|Win32
 		{13E19BDB-B52F-41DA-8AC3-AA7DE939289E}.Release|x86.Build.0 = Release|Win32
-		{0A083868-F2F4-4D6A-BF76-6F32C0921566}.Debug|x64.ActiveCfg = Debug|x64
-		{0A083868-F2F4-4D6A-BF76-6F32C0921566}.Debug|x64.Build.0 = Debug|x64
-		{0A083868-F2F4-4D6A-BF76-6F32C0921566}.Debug|x86.ActiveCfg = Debug|Win32
-		{0A083868-F2F4-4D6A-BF76-6F32C0921566}.Debug|x86.Build.0 = Debug|Win32
-		{0A083868-F2F4-4D6A-BF76-6F32C0921566}.Release|x64.ActiveCfg = Release|x64
-		{0A083868-F2F4-4D6A-BF76-6F32C0921566}.Release|x64.Build.0 = Release|x64
-		{0A083868-F2F4-4D6A-BF76-6F32C0921566}.Release|x86.ActiveCfg = Release|Win32
-		{0A083868-F2F4-4D6A-BF76-6F32C0921566}.Release|x86.Build.0 = Release|Win32
+		{E203A21B-9750-435A-8E47-83D0223E2FEF}.Debug|x64.ActiveCfg = Debug|x64
+		{E203A21B-9750-435A-8E47-83D0223E2FEF}.Debug|x64.Build.0 = Debug|x64
+		{E203A21B-9750-435A-8E47-83D0223E2FEF}.Debug|x86.ActiveCfg = Debug|Win32
+		{E203A21B-9750-435A-8E47-83D0223E2FEF}.Debug|x86.Build.0 = Debug|Win32
+		{E203A21B-9750-435A-8E47-83D0223E2FEF}.Release|x64.ActiveCfg = Release|x64
+		{E203A21B-9750-435A-8E47-83D0223E2FEF}.Release|x64.Build.0 = Release|x64
+		{E203A21B-9750-435A-8E47-83D0223E2FEF}.Release|x86.ActiveCfg = Release|Win32
+		{E203A21B-9750-435A-8E47-83D0223E2FEF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{13E19BDB-B52F-41DA-8AC3-AA7DE939289E} = {50F490CC-45FF-46A1-AEA8-12E74C628021}
-		{0A083868-F2F4-4D6A-BF76-6F32C0921566} = {C9518A65-FC00-4A6C-AC72-DB3A871C3F01}
+		{E203A21B-9750-435A-8E47-83D0223E2FEF} = {C17B5506-5359-437C-8A52-7A73B950D353}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C158A30-A027-424E-9A9F-CAAF3E21E904}
