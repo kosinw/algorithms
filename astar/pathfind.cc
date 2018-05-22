@@ -14,7 +14,7 @@ using A::Node;
 float A::Heurisitics::Manhattan(Vertex a, Vertex b)
 {
 	uint32_t dx = abs(a.X - b.X);
-	uint32_t dy = abs(a.Y - b.Y);
+	uint32_t dy = abs(a.Y - b.Y);		
 
 	return (float)(dx + dy);
 }
@@ -95,7 +95,7 @@ std::vector<Vertex> A::Pathfinder::CalculateShortestPath(Vertex start, Vertex go
 
 			bool notVisited = true;
 
-			for (int i = 0; i < visited.size(); ++i)
+			for (size_t i = 0; i < visited.size(); ++i)
 			{
 				if (visited[i].X == neighbor.X && visited[i].Y == neighbor.Y)
 				{

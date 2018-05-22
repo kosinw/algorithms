@@ -330,3 +330,7 @@ ASALocalRun/
 # Binary outputs
 */bin/
 */obj
+
+# CMake build output
+*/build/
+/build/
