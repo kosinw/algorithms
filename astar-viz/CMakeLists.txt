@@ -8,7 +8,7 @@ project(astar-viz C CXX)
 set(LIBRARY_OUTPUT_PATH ./${CMAKE_CONFIG})
 
 # Keep track of source files
-set(SOURCE main.cc state.cc)
+set(SOURCE main.cc)
 
 # Add new executable
 add_executable(astar-viz ${SOURCE})

@@ -7,9 +7,6 @@ project(astar CXX)
 # Set the output dir depending on the configuration type
 set(LIBRARY_OUTPUT_DIRECTORY ./${CMAKE_BUILD_CONFIG})
 
-# Include the same directory
-include_directories(${CMAKE_SOURCE_DIR})
-
 # Add source files to source variable
 set(SOURCE pathfind.cc)
 

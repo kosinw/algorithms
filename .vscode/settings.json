@@ -1,8 +1,3 @@
 {
-	"files.exclude": {
-		"**/*.vcxproj**": true,
-		"**/*.sln": true,
-		".vs/": true
-	},
 	"editor.detectIndentation": false
 }
