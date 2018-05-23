@@ -15,5 +15,5 @@ add_executable(astar-viz ${SOURCE})
 
 # Link astar library to executable
 target_link_libraries(astar-viz astar)
-target_link_libraries(astar-viz ${CMAKE_SOURCE_DIR}/lib/x86/SDL2main.lib)
-target_link_libraries(astar-viz ${CMAKE_SOURCE_DIR}/lib/x86/SDL2.lib)
+target_link_libraries(astar-viz ${CMAKE_SOURCE_DIR}/lib/x64/SDL2main.lib)
+target_link_libraries(astar-viz ${CMAKE_SOURCE_DIR}/lib/x64/SDL2.lib)
