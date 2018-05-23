@@ -8,10 +8,12 @@ project(astar-viz C CXX)
 set(LIBRARY_OUTPUT_PATH ./${CMAKE_CONFIG})
 
 # Keep track of source files
-set(SOURCE main.cc)
+set(SOURCE main.cc state.cc)
 
 # Add new executable
 add_executable(astar-viz ${SOURCE})
 
 # Link astar library to executable
 target_link_libraries(astar-viz astar)
+target_link_libraries(astar-viz ${CMAKE_SOURCE_DIR}/lib/x86/SDL2main.lib)
+target_link_libraries(astar-viz ${CMAKE_SOURCE_DIR}/lib/x86/SDL2.lib)

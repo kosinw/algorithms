@@ -8,4 +8,5 @@ project(algorithms C CXX)
 add_subdirectory(astar)
 add_subdirectory(astar-viz)
 
+# Add include directories
 target_include_directories(astar-viz PRIVATE ${CMAKE_SOURCE_DIR}/include)

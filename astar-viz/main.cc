@@ -5,26 +5,21 @@
 
 #include <SDL.h>
 
-int main(int argc, char** argv)
+#include "state.hh"
+
+int main(int argc, char **argv)
 {
 	if (SDL_Init(SDL_INIT_VIDEO) != 0)
 	{
-		std::cout << "Error initializing SDL" << std::endl;
+		std::cerr << "Error! SDL could not initialize properly" << std::endl;
+
 		return -1;
 	}
 
-	SDL_Window *window = SDL_CreateWindow("A* Visualization by Kosi Nwabueze",
-		SDL_WINDOWPOS_UNDEFINED,
-		SDL_WINDOWPOS_UNDEFINED,
-		1280, 720, 0);			
+	SDL_Window *whnd = SDL_CreateWindow("A* Visualization", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1280, 720, 0);
+	SDL_Renderer *rhnd = SDL_CreateRenderer(whnd, -1, SDL_RENDERER_ACCELERATED);
 
-	A::Pathfinder pathfinder;	
-
-	SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-
-	SDL_DestroyWindow(window);
-	SDL_DestroyRenderer(renderer);
-	SDL_Quit();
+	SDL_Event ev;
 
 	return 0;
 }
