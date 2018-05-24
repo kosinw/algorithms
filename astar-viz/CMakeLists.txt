@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.0.0)
 
 # Set the name of the project
-project(astar-viz C CXX)
+project(astar-viz CXX)
 
 # Set the output dir depending on the configuration type
 set(LIBRARY_OUTPUT_PATH ./${CMAKE_CONFIG})

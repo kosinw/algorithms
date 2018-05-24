@@ -8,13 +8,13 @@
 
 #include "min_heap.hh"
 
-using A::Vertex;
 using A::Node;
+using A::Vertex;
 
 float A::Heurisitics::Manhattan(Vertex a, Vertex b)
 {
 	uint32_t dx = abs(a.X - b.X);
-	uint32_t dy = abs(a.Y - b.Y);		
+	uint32_t dy = abs(a.Y - b.Y);
 
 	return (float)(dx + dy);
 }
@@ -57,7 +57,7 @@ std::vector<Vertex> A::Pathfinder::CalculateShortestPath(Vertex start, Vertex go
 		return (int32_t)ceil(result);
 	};
 
-	Shared::MinHeap<std::shared_ptr<Node>> mh(comparer);
+	A::MinHeap<std::shared_ptr<Node>> mh(comparer);
 
 	{
 		std::shared_ptr<Node> startNode = std::make_shared<Node>();
@@ -68,16 +68,15 @@ std::vector<Vertex> A::Pathfinder::CalculateShortestPath(Vertex start, Vertex go
 		mh.PushBack(startNode);
 	}
 
-	std::array<Vertex, 8> directions{ 
-		0, 1, 
+	std::array<Vertex, 8> directions{
+		0, 1,
 		1, 0,
 		-1, 0,
 		0, -1,
 		1, 1,
 		1, -1,
 		-1, 1,
-		-1, -1
-	};
+		-1, -1};
 
 	std::vector<Vertex> visited;
 
@@ -89,7 +88,7 @@ std::vector<Vertex> A::Pathfinder::CalculateShortestPath(Vertex start, Vertex go
 
 		for (auto vertex : directions)
 		{
-			Vertex neighbor = { current->V.X + vertex.X, current->V.Y + vertex.Y };
+			Vertex neighbor = {current->V.X + vertex.X, current->V.Y + vertex.Y};
 
 			bool notBlacklisted = IsNodeUnblocked(neighbor);
 
@@ -170,7 +169,7 @@ void A::Pathfinder::SetFunction(HeuristicsFunction funct)
 
 void A::Pathfinder::SetGraphSize(uint32_t X, uint32_t Y)
 {
-	size_ = { (int32_t)X, (int32_t)Y };
+	size_ = {(int32_t)X, (int32_t)Y};
 }
 
 bool A::Pathfinder::IsNodeUnblocked(Vertex v)
