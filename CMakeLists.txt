@@ -1,15 +1,8 @@
 # Set minimum required CMake version
-cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 3.10.0)
 
 # Set project name and language
 project(algorithms C CXX)
 
 # Add subdirectories and include directories
 add_subdirectory(astar)
-add_subdirectory(astar-viz)
-
-# Add include directories
-target_include_directories(astar-viz PRIVATE ${CMAKE_SOURCE_DIR}/include)
-
-# Include the same directory
-target_include_directories(astar-viz PRIVATE ${CMAKE_SOURCE_DIR})
