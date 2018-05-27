@@ -8,7 +8,7 @@ project(astar CXX)
 set(LIBRARY_OUTPUT_DIRECTORY ./${CMAKE_BUILD_CONFIG})
 
 # Add source files to source variable
-set(SOURCE src/pathfind.cc src/main.cc)
+set(SOURCE src/pathfind.cc)
 
-# Add new executable
+# Add new static library
 add_library(astar STATIC ${SOURCE})
