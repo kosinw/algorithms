@@ -1,3 +1,8 @@
 {
-	"editor.detectIndentation": false
+	"editor.detectIndentation": false,
+	"files.associations": {
+		"Makefile*": "makefile",
+		"*.nmake": "makefile",
+		"xmemory0": "cpp"
+	}
 }

@@ -12,3 +12,6 @@ set(SOURCE src/pathfind.cc)
 
 # Add new static library
 add_library(astar STATIC ${SOURCE})
+
+# Add viz subdirectory
+add_subdirectory(viz)

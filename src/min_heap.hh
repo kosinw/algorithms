@@ -85,7 +85,7 @@ template <typename T>
 inline void MinHeap<T>::UpHeap(size_t idx)
 {
 	if (!comparer_)
-		throw std::exception("[min_heap] -> comparer_ is nullptr");
+		return;
 
 	if (idx <= 0)
 		return;
@@ -108,7 +108,7 @@ template <typename T>
 inline void MinHeap<T>::DownHeap(size_t idx)
 {
 	if (!comparer_)
-		throw std::exception("[min_heap] -> comparer_ is nullptr");
+		return;
 
 	if (idx >= this->size())
 		return;

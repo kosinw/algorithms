@@ -4,12 +4,14 @@
             "name": "Win32",
             "browse": {
                 "path": [
-                    "${workspaceFolder}"
+                    "${workspaceFolder/}",
+					"${workspaceFolder}/viz/"
                 ],
                 "limitSymbolsToIncludedHeaders": true
             },
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/",
+				"${workspaceFolder}/viz/"
             ],
             "defines": [
                 "_DEBUG",
