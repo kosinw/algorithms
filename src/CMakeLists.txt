@@ -13,4 +13,4 @@ target_sources(astar
 )
 
 # Include min_heap and pathfind to include path
-target_include_directories(astar PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(astar PUBLIC ${CMAKE_CURRENT_LIST_DIR}/)

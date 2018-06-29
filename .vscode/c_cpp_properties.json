@@ -2,22 +2,17 @@
     "configurations": [
         {
             "name": "Win32",
-            "browse": {
-                "path": [
-                    "${workspaceFolder/}",
-					"${workspaceFolder}/viz/"
-                ],
-                "limitSymbolsToIncludedHeaders": true
-            },
             "includePath": [
-                "${workspaceFolder}/",
-				"${workspaceFolder}/viz/"
+				"${workspaceFolder}/windraw/src",
+                "${workspaceFolder}/**",
+                "C:\\vcpkg\\installed\\x86-windows\\include"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.14.26428/bin/Hostx64/x64/cl.exe",
             "cStandard": "c11",
             "cppStandard": "c++17",
             "intelliSenseMode": "msvc-x64"

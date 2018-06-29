@@ -50,7 +50,8 @@ std::vector<Vertex> A::Pathfinder::CalculateShortestPath(Vertex start, Vertex go
     auto comparer = [](std::shared_ptr<Node> a, std::shared_ptr<Node> b) -> int32_t {
         auto result = a->D() - b->D();
 
-        if (result < 0) {
+        if (result < 0)
+        {
             return (int32_t)floor(result);
         }
 
@@ -61,70 +62,78 @@ std::vector<Vertex> A::Pathfinder::CalculateShortestPath(Vertex start, Vertex go
 
     {
         std::shared_ptr<Node> startNode = std::make_shared<Node>();
-        startNode->V = start;
-        startNode->Founder = nullptr;
-        startNode->H = function_(start, goal);
-        startNode->G = 0;
+        startNode->V                    = start;
+        startNode->Founder              = nullptr;
+        startNode->H                    = function_(start, goal);
+        startNode->G                    = 0;
         mh.PushBack(startNode);
     }
 
-    std::array<Vertex, 8> directions{
-        0, 1,
-        1, 0,
-        -1, 0,
-        0, -1,
-        1, 1,
-        1, -1,
-        -1, 1,
-        -1, -1
-    };
+    std::array<Vertex, 8> directions;
+    directions[0] = A::Vertex(0, 1);
+    directions[1] = A::Vertex(1, 0);
+    directions[2] = A::Vertex(-1, 0);
+    directions[3] = A::Vertex(0, -1);
+    directions[4] = A::Vertex(1, 1);
+    directions[5] = A::Vertex(1, -1);
+    directions[6] = A::Vertex(-1, 1);
+    directions[7] = A::Vertex(-1, -1);
 
     std::vector<Vertex> visited;
 
     std::shared_ptr<Node> current;
 
-    while (mh.size() > 0) {
+    while (mh.size() > 0)
+    {
         current = mh.Extract();
 
-        for (auto vertex : directions) {
+        for (auto vertex : directions)
+        {
             Vertex neighbor = { current->V.X + vertex.X, current->V.Y + vertex.Y };
 
             bool notBlacklisted = IsNodeUnblocked(neighbor);
 
             bool notVisited = true;
 
-            for (size_t i = 0; i < visited.size(); ++i) {
-                if (visited[i].X == neighbor.X && visited[i].Y == neighbor.Y) {
+            for (size_t i = 0; i < visited.size(); ++i)
+            {
+                if (visited[i].X == neighbor.X && visited[i].Y == neighbor.Y)
+                {
                     notVisited = false;
                     break;
                 }
             }
 
-            if (notBlacklisted && notVisited) {
+            if (notBlacklisted && notVisited)
+            {
                 bool wasQueued = false;
 
                 std::shared_ptr<Node> next = std::make_shared<Node>();
-                next->V = neighbor;
-                next->Founder = current;
-                next->H = function_(neighbor, goal);
-                next->G = current->G + 1;
+                next->V                    = neighbor;
+                next->Founder              = current;
+                next->H                    = function_(neighbor, goal);
+                next->G                    = current->G + 1;
 
-                for (size_t i = 0; i < mh.size(); ++i) {
+                for (size_t i = 0; i < mh.size(); ++i)
+                {
                     auto currentValue = mh[i];
 
-                    if (currentValue->V.X == neighbor.X && currentValue->V.Y == neighbor.Y) {
-                        next = currentValue;
+                    if (currentValue->V.X == neighbor.X && currentValue->V.Y == neighbor.Y)
+                    {
+                        next      = currentValue;
                         wasQueued = true;
                         break;
                     }
                 }
 
-                if ((current->G + 1 + current->H) < next->D()) {
-                    next->G = current->G + 1;
+                if ((current->G + 1 + current->H) < next->D())
+                {
+                    next->G       = current->G + 1;
                     next->Founder = current;
                 }
 
-                if (!wasQueued) {
+                if (!wasQueued)
+                {
                     mh.PushBack(next);
                 }
             }
@@ -132,18 +141,21 @@ std::vector<Vertex> A::Pathfinder::CalculateShortestPath(Vertex start, Vertex go
 
         visited.push_back(current->V);
 
-        if (current->V.X == goal.X && current->V.Y == goal.Y) {
+        if (current->V.X == goal.X && current->V.Y == goal.Y)
+        {
             break;
         }
     }
 
     std::vector<Vertex> ret;
 
-    if (current->V.X != goal.X && current->V.Y != goal.Y) {
+    if (current->V.X != goal.X && current->V.Y != goal.Y)
+    {
         return std::vector<Vertex>();
     }
 
-    while (current != nullptr) {
+    while (current != nullptr)
+    {
         ret.push_back(current->V);
         current = current->Founder;
     }
@@ -163,14 +175,17 @@ void A::Pathfinder::SetGraphSize(uint32_t X, uint32_t Y)
 
 bool A::Pathfinder::IsNodeUnblocked(Vertex v)
 {
-    if (v.X < 0 || v.X > size_.X || v.Y < 0 || v.Y > size_.Y) {
+    if (v.X < 0 || v.X > size_.X || v.Y < 0 || v.Y > size_.Y)
+    {
         return false;
     }
 
-    for (size_t i = 0; i < blockedVertices_.size(); ++i) {
+    for (size_t i = 0; i < blockedVertices_.size(); ++i)
+    {
         auto current = blockedVertices_[i];
 
-        if (current.X == v.X && current.Y == v.Y) {
+        if (current.X == v.X && current.Y == v.Y)
+        {
             return false;
         }
     }

@@ -8,10 +8,10 @@ project(astar CXX)
 set(LIBRARY_OUTPUT_DIRECTORY ./${CMAKE_BUILD_CONFIG})
 
 # Add source files to source variable
-set(SOURCE src/pathfind.cc)
+add_subdirectory(src)
 
-# Add new static library
-add_library(astar STATIC ${SOURCE})
+add_subdirectory(windraw)
 
 # Add viz subdirectory
 add_subdirectory(viz)
+

@@ -1,52 +1,62 @@
 #pragma once
 
-#include <stdint.h> 
-#include <vector>
 #include <memory>
+#include <stdint.h>
+#include <vector>
 
 namespace A
 {
-	struct Vertex
-	{
-		int32_t X;
-		int32_t Y;
-	};
+    struct Vertex
+    {
+        Vertex() = default;
 
-	struct Node
-	{
-		Vertex V;
+        Vertex(int32_t x, int32_t y)
+            : X(x)
+            , Y(y)
+        {
+        
+		}
+		
+        int32_t X;
+        int32_t Y;
+    };
 
-		std::shared_ptr<Node> Founder;
+    struct Node
+    {
+        Vertex V;
 
-		float G; // Distance value
-		float H; // Heuristics value
+        std::shared_ptr<Node> Founder;
 
-		inline float D() { return G + H; }		
-	};
+        float G; // Distance value
+        float H; // Heuristics value
 
-	class Pathfinder
-	{
-		using HeuristicsFunction = float(*)(Vertex, Vertex);
+        inline float D() { return G + H; }
+    };
 
-	public:
-		Pathfinder();
-		void BlockVertex(Vertex v);
-		void UnblockVertex(Vertex v);
+    class Pathfinder
+    {
+        using HeuristicsFunction = float (*)(Vertex, Vertex);
 
-		std::vector<Vertex> CalculateShortestPath(Vertex start, Vertex goal);
+    public:
+        Pathfinder();
+        void BlockVertex(Vertex v);
+        void UnblockVertex(Vertex v);
 
-		void SetFunction(HeuristicsFunction funct);
-		void SetGraphSize(uint32_t X, uint32_t Y);
-	private:
-		bool IsNodeUnblocked(Vertex v);
-		std::vector<Vertex> blockedVertices_;
-		HeuristicsFunction function_ = nullptr;
-		Vertex size_;
-	};
+        std::vector<Vertex> CalculateShortestPath(Vertex start, Vertex goal);
 
-	namespace Heurisitics
-	{
-		float Manhattan(Vertex a, Vertex b);
-		float Euclidean(Vertex a, Vertex b);
-	}
+        void SetFunction(HeuristicsFunction funct);
+        void SetGraphSize(uint32_t X, uint32_t Y);
+
+    private:
+        bool IsNodeUnblocked(Vertex v);
+        std::vector<Vertex> blockedVertices_;
+        HeuristicsFunction function_ = nullptr;
+        Vertex size_;
+    };
+
+    namespace Heurisitics
+    {
+        float Manhattan(Vertex a, Vertex b);
+        float Euclidean(Vertex a, Vertex b);
+    }
 }
